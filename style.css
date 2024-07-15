@@ -1,0 +1,82 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.6rem;
+  line-height: 1.4;
+  color: #303030;
+}
+
+/* Efeito 3D */
+body {
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  padding: 5rem;
+
+  & .bloco {
+    position: relative;
+    width: 10rem;
+    height: 10rem;
+    transform-style: preserve-3d;
+    transform: rotateX(-20deg) rotatey(35deg);
+    animation: 3s ease-in-out infinite alternate running animacao-cubo;
+
+    &:hover {
+      animation-play-state: paused;
+    }
+
+    & div {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      width: 10rem;
+      height: 10rem;
+
+      &.frente {
+        background-color: lightblue;
+        transform: translatez(5rem);
+      }
+      &.esquerda {
+        background-color: lightgreen;
+        transform: rotateY(-90deg) translatez(5rem);
+      }
+      &.topo {
+        background-color: lightcoral;
+        transform: rotateX(90deg) translatez(5rem);
+      }
+    }
+  }
+}
+
+@keyframes animacao-cubo {
+  0% {
+    transform: rotateX(-20deg) rotatey(35deg) translate(0, 0);
+  }
+
+  25% {
+    transform: rotateX(-20deg) rotatey(35deg) translate(25rem, -15rem);
+  }
+
+  50% {
+    transform: rotateX(-20deg) rotatey(35deg) translate(50rem, 15rem);
+  }
+
+  75% {
+    transform: rotateX(-20deg) rotatey(35deg) translate(75rem, -15rem);
+  }
+
+  100% {
+    transform: rotateX(-20deg) rotatey(35deg) translate(100rem, 15rem);
+  }
+}
